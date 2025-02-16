@@ -1,0 +1,22 @@
+{
+    "Lua.diagnostics.globals": [
+        "raio",
+        "area",
+        "n",
+        "termo1",
+        "termo2",
+        "contador",
+        "termo3",
+        "result",
+        "num",
+        "numero",
+        "resetGame",
+        "y",
+        "altura",
+        "base",
+        "x",
+        "triangulo"
+    ],
+
+              
+}
