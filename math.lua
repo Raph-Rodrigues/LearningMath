@@ -32,6 +32,25 @@ print(numero .. " eh primo? " .. tostring(ehPrimo(numero)))
 
 print("----------------------------")
 
+print("Fatorial")
+
+local function fatorial(n)
+    if n == 0 or n == 1 then
+        return 1
+    end
+
+    local resultado = 1
+    for i = 2, n do
+        resultado = resultado * i
+    end
+    return resultado
+end
+
+local numero = io.read("n")
+print("Fatorial de " .. numero .. ": " .. fatorial(numero))
+
+print("----------------------------")
+
 print("Sequencia de Fibonacci:")
 print("----------------------------")
 
@@ -59,3 +78,16 @@ print(table.concat(resultado, ", "))
 
 print("Fim")
 print("----------------------------")
+
+print("Triangulo de ouro: ")
+
+local function calcularTrianguloOuro(base, altura)
+    local area = (base * altura) / 2
+    return area
+end
+
+local base = 100
+local altura = 100
+local area = calcularTrianguloOuro(base, altura)
+
+print("Area do triangulo de ouro: " .. area)

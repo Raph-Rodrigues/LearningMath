@@ -7,15 +7,16 @@
         "termo2",
         "contador",
         "termo3",
-        "result",
-        "num",
-        "numero",
         "resetGame",
         "y",
         "altura",
         "base",
         "x",
-        "triangulo"
+        "triangulo",
+        "result"
+    ],
+    "Lua.diagnostics.disable": [
+        "unused-local"
     ],
 
               

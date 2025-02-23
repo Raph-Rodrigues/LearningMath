@@ -4,27 +4,32 @@ local Fibonacci = require("fibonacci")
 local Soma = require("precisaoSoma")
 local Primo = require("numeroPrimo")
 local Triangulo = require("triangulo")
+local Fatorial = require("fatorial")
 
 local userInput = ""
+local resultado = ""
 local inputActive = true
 
 local defaultFibonacciCount = Fibonacci.numbersToGenerate
 local defaultCirculoRaio = Circulo.raio
 local defaultSomaNum1 = Soma.num1
 local defaultSomaNum2 = Soma.num2
+local defaultFatorial = Fatorial.num
 
 function love.load()
     love.window.setTitle("Math App")
-    love.window.setMode(800, 600, {resizable = true})
-
+    love.window.setMode(800, 600, {resizable = true}, {vsync = true})
+    
     love.graphics.setFont(love.graphics.newFont(16))
     love.keyboard.setKeyRepeat(true)
 
     Fibonacci:calcFibonacci(Fibonacci.numbersToGenerate)
+    Fatorial:new()
     resetGame()
 
     triangulo = Triangulo:new(love.graphics.getWidth() / 2, love.graphics.getHeight() / 2, 100, 100, {1, 0, 0, 1})
 end
+
 function resetGame()
     userInput = ""
     inputActive = true
@@ -40,6 +45,9 @@ function resetGame()
     
     Primo.numero = 0
     Primo:verificar()
+
+    Fatorial.num = defaultFatorial
+    Fatorial:calcularFatorial(Fatorial.num)
 end
 
 function love.update(dt)
@@ -61,7 +69,8 @@ function love.keypressed(key)
         if n and n > 0 then
             Fibonacci.numbersToGenerate = n
             Fibonacci:calcFibonacci(n)
-
+            Fatorial.num = n
+            Fatorial:calcularFatorial(n)
             Primo.numero = n
             Primo:verificar()
         end
@@ -96,10 +105,12 @@ function love.draw()
     Fibonacci:draw()
 
     Primo:draw(10, 90)
+    love.graphics.print("O fatorial de " .. Fatorial.num .. " é ", 10, love.graphics.getHeight() / 2 - 120, 0, 1, 1)
+    Fatorial:draw()
 
     local startY = 90
     
-    local inputX, inputY = (love.graphics.getWidth() / 2) + 174, startY
+    local inputX, inputY = (love.graphics.getWidth() / 2) + 240, startY
     love.graphics.print(userInput, inputX, inputY, 0, 1, 1)
 
     -- Mostrar a barrar (caret) quando o input estiver ativo

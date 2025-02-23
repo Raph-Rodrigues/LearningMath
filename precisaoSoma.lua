@@ -3,7 +3,7 @@ Soma = {
     num2 = 0.2,
     result,
     x = 10,
-    y = 180
+    y = 280
 }
 
 function Soma:new()

@@ -1,7 +1,7 @@
 local NumeroPrimo = {
   numero = 0,
   resultado = false,
-  mensagem = "Digite um número para sequencia de Fibonacci e verificar se é primo: "
+  mensagem = "Digite um número para sequencia de Fibonacci, Fatorial e verificar se é primo: "
 }
 
 function NumeroPrimo:verificar()
